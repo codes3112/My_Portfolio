@@ -1,0 +1,16 @@
+{
+  "name": "my_portfolio",
+  "version": "1.0.0",
+  "description": "Sneha's Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass-chokidar -w ./scss -o ./dist/css/  -r"
+  },
+  "author": "Sneha",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.11.0",
+    "node-sass-chokidar": "^1.3.4"
+  },
+  "devDependencies": {}
+}
