@@ -4,7 +4,7 @@
   "description": "Sneha's Portfolio",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass-chokidar -w ./scss -o ./dist/css/  -r"
+    "sass": "node-sass-chokidar -w ./scss -o ./dist/css/ -r"
   },
   "author": "Sneha",
   "license": "ISC",
