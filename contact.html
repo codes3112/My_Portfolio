@@ -10,6 +10,11 @@
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/main.css" />
     <title>Contact Me</title>
   </head>
@@ -89,7 +94,7 @@
                 required
               />
 
-              <span class="note">Format: 123-456-7890</span>
+              <!-- <span class="note">Format: 123-456-7890</span> -->
               <!-- type="text"
                 name="phone"
                 id="phone"
@@ -103,7 +108,12 @@
             />
             <p class="full">
               <label>Message</label>
-              <textarea name="message" rows="5" id="message"></textarea>
+              <textarea
+                name="message"
+                rows="5"
+                id="message"
+                maxlength="500"
+              ></textarea>
             </p>
             <p class="full">
               <button type="submit" value="send">
@@ -124,6 +134,18 @@
         "action",
         "//formspree.io/" + "snehaarora3112" + "@" + "gmail" + "." + "com"
       );
+      $("#phone").keyup(function() {
+        $(this).val(
+          $(this)
+            .val()
+            .replace(/(\d{3})\-?(\d{3})\-?(\d{4})/, "$1-$2-$3")
+        );
+      });
+
+      var n = document.forms["#phone"];
+      console.log(n);
+      //console.log(n.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"));
+      //document.getElementById('#phone').innerHTML(n.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"));
     </script>
     <script src="js/main.js"></script>
   </body>
