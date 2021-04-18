@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <title>Contact Me</title>
   </head>
+
   <body>
     <!-- <div class="overlay"></div> -->
     <header>
@@ -28,11 +29,11 @@
           <div class="portrait"></div>
         </div>
         <ul class="menu-nav">
-          <li class="nav-item ">
+          <li class="nav-item">
             <a href="index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="about.html" class="nav-link ">About Me</a>
+            <a href="about.html" class="nav-link">About Me</a>
           </li>
           <li class="nav-item">
             <a href="work.html" class="nav-link">My Work</a>
@@ -48,9 +49,7 @@
       <h1 class="lg-heading">
         Contact <span class="text-secondary">Me </span>
       </h1>
-      <h2 class="sm-heading">
-        How you can reach me?
-      </h2>
+      <h2 class="sm-heading">How to reach me?</h2>
 
       <div class="boxes">
         <div>
@@ -62,7 +61,11 @@
         <div class="wrapper">
           <h3 id="message">Send Message</h3>
 
-          <form id="contactForm" method="POST">
+          <form
+            action="https://getform.io/f/ea8878e3-3177-40b5-9bb6-eff7996b1fc8"
+            method="POST"
+            id="contactForm"
+          >
             <p>
               <label>Name</label>
               <input type="text" name="name" id="name" required />
@@ -76,7 +79,7 @@
               <input
                 type="email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                name="_replyto"
+                name="email"
                 id="email"
                 required
               />
@@ -88,21 +91,15 @@
                 id="phone"
                 name="phone"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                maxlength="12"
                 required
               />
 
               <span class="note">Format: 123-456-7890</span>
-              <!-- type="text"
-                name="phone"
-                id="phone"
-                pattern="^(0\W*7\W*(?:\d\W*){9})$" -->
+              <!-- type="text" name="phone" id="phone"
+              pattern="^(0\W*7\W*(?:\d\W*){9})$" -->
             </p>
 
-            <input
-              type="hidden"
-              name="_next"
-              value="https://codes3112.github.io/My_Portfolio/thanks.html"
-            />
             <p class="full">
               <label>Message</label>
               <textarea
@@ -111,10 +108,15 @@
                 id="message"
                 maxlength="500"
               ></textarea>
-              <!-- <span class="note">Max-Limit:500 Characters</span> -->
+              <span class="note">Max-Limit:500 Characters</span>
             </p>
             <p class="full">
-              <button type="submit" value="send">
+              <button
+                type="submit"
+                name="submit"
+                value="submit"
+                onCLick="resetForm()"
+              >
                 Submit
               </button>
             </p>
@@ -123,16 +125,13 @@
       </div>
     </main>
 
-    <footer id="main-footer">
-      Copyright &copy;2019
-    </footer>
+    <footer id="main-footer">Copyright &copy;2019</footer>
     <script>
-      var contactform = document.getElementById("contactForm");
-      contactform.setAttribute(
-        "action",
-        "//formspree.io/" + "snehaarora3112" + "@" + "gmail" + "." + "com"
-      );
-      $("#phone").keyup(function() {
+      function resetForm() {
+        document.getElementById("contactForm").reset();
+      }
+
+      $("#phone").keyup(function () {
         $(this).val(
           $(this)
             .val()
@@ -141,9 +140,20 @@
       });
 
       var n = document.forms["#phone"];
+
       console.log(n);
       //console.log(n.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"));
       //document.getElementById('#phone').innerHTML(n.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3"));
+      function sendMail() {
+        var link =
+          "mailto:snehaarora3112@gmail.com" +
+          "?cc=myCCaddress@example.com" +
+          "&subject=" +
+          escape("This is my subject") +
+          "&body=" +
+          escape(document.getElementById("message").value);
+        window.location.href = link;
+      }
     </script>
     <script src="js/main.js"></script>
   </body>
